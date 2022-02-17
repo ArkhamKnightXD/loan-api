@@ -41,22 +41,17 @@ public class ClientService {
     }
 
 
-    public List<Client> updateClient(Client client) {
+    public List<Client> updateClient(Client updatedClient) {
 
-        var actualVideoGame = clientRepository.findClientById(client.getId());
+        var actualClient = clientRepository.findClientById(updatedClient.getId());
 
-        actualVideoGame.setName(client.getName());
-        actualVideoGame.setLastName(client.getLastName());
-        actualVideoGame.setDirection(client.getDirection());
-        actualVideoGame.setPhoneNumber(client.getPhoneNumber());
-        actualVideoGame.setAge(client.getAge());
-        actualVideoGame.setLoanStartDate(client.getLoanStartDate());
-        actualVideoGame.setLoanEndDate(client.getLoanEndDate());
-        actualVideoGame.setLoanTerms(client.getLoanTerms());
-        actualVideoGame.setLoanInterest(client.getLoanInterest());
-        actualVideoGame.setLoanInterest(client.getLoanQuantity());
+        actualClient.setName(updatedClient.getName());
+        actualClient.setLastName(updatedClient.getLastName());
+        actualClient.setDirection(updatedClient.getDirection());
+        actualClient.setPhoneNumber(updatedClient.getPhoneNumber());
+        actualClient.setAge(updatedClient.getAge());
 
-        clientRepository.save(actualVideoGame);
+        clientRepository.save(actualClient);
 
         return clientRepository.findAll();
     }
